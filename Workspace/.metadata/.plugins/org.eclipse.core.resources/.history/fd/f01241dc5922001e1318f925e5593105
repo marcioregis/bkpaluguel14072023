@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	>
+
+	<div class="card">
+    <h:form id="form">
+        <p:dataView var="customer" value="#{MBInquilinos.itens}" rows="12" paginator="true"
+                    rowsPerPageTemplate="6,12,16"
+                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+
+            <p:dataViewGridItem>
+                <div class="card flex justify-content-center">
+                
+                    <h:panelGrid columns="2" cellpadding="7">
+                        <h:outputText value="Recebemos de:" styleClass="text-secondary"/>
+                        <h:outputText value="#{item.nomeinq}"/>
+                    </h:panelGrid>
+                </div>
+            </p:dataViewGridItem>
+
+            <p:dataViewListItem>
+                <h:panelGrid columns="2" style="width:100%" cellspacing="20">
+                    <p:outputPanel>
+                        <h:panelGrid columns="2" cellpadding="7">
+                            <h:outputText value="Name:" styleClass="text-secondary" />
+                            <h:outputText value="#{customer.name}"/>
+
+                            
+                        </h:panelGrid>
+                    </p:outputPanel>
+                </h:panelGrid>
+            </p:dataViewListItem>
+        </p:dataView>
+    </h:form>
+</div>
+	
+</ui:composition>

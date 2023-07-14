@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	>
+   <p:dataViewListItem>
+                <h:panelGrid columns="2" style="width:100%" cellspacing="20">
+                    <p:outputPanel>
+                        <h:panelGrid columns="2" cellpadding="7">
+                            <h:outputText value="Name:" styleClass="text-secondary" />
+                            <h:outputText value="#{customer.name}"/>
+
+                            <h:outputText value="Country:" styleClass="text-secondary"/>
+                            <p:column>
+                                <span class="flag flag-#{customer.country.code}"
+                                      style="width: 30px; height: 20px"/>
+                                <h:outputText style="vertical-align: middle; margin-left: .5rem"
+                                              value="#{customer.country.name}"/>
+                            </p:column>
+
+                            <h:outputText value="Company:" styleClass="text-secondary"/>
+                            <h:outputText value="#{customer.company}"/>
+
+                            <h:outputText value="Representative:" styleClass="text-secondary"/>
+                            <p:column>
+                                <p:graphicImage name="images/avatar/#{customer.representative.image}"
+                                                library="demo"
+                                                width="32" style="vertical-align: middle"/>
+                                <h:outputText style="vertical-align: middle; margin-left: .5rem"
+                                              value="#{customer.representative.name}"/>
+                            </p:column>
+                        </h:panelGrid>
+                    </p:outputPanel>
+                </h:panelGrid>
+            </p:dataViewListItem>
+</ui:composition>
